@@ -7,7 +7,7 @@ const ListView = (props) => {
       return (
         <div key={item.id}>
           <h1>{item.name}</h1>
-          <Link to={`/planets/${item.id}`}>View Details</Link>
+          <Link to={`/${props.resource}/${item.id}`}>View Details</Link>
         </div>
       );
     });

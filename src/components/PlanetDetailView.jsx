@@ -17,8 +17,8 @@ const PlanetDetailView = ({ resource }) => {
       <table>
         <thead>
           <tr>
-            <td>Key</td>
-            <td>Value</td>
+            <th>Key</th>
+            <th>Value</th>
           </tr>
         </thead>
         <tbody>

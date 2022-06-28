@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import PlanetsView from "./components/PlanetsView";
 import ResidentDetailView from "./components/ResidentDetailView";
 import PlanetDetailView from "./components/PlanetDetailView";
+import PeopleView from "./components/PeopleView";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 // ContextProvider at root to make state available to all children components through useContext hook
@@ -16,6 +17,7 @@ root.render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route path="/planets" element={<PlanetsView />} />
+          <Route path="/people" element={<PeopleView />} />
           <Route
             path="/planets/:id"
             element={<PlanetDetailView resource={"planets"} />}
