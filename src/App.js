@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext, useEffect } from "react";
+import "./App.css";
+import { fetchPlanets, fetchPeople } from "./state/apiCalls";
+import { SwapiContext } from "./state/context";
 
+// Using useContext we can fetch and store at first render
 function App() {
+  const { dispatch, ...state } = useContext(SwapiContext);
+
+  useEffect(() => {
+    fetchPlanets(state, dispatch);
+    fetchPeople(state, dispatch);
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {state.error && <p>A error happened, try again</p>}
+      {state.isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <>
+          <pre>{JSON.stringify(state.planets)}</pre>
+          <pre>{JSON.stringify(state.people)}</pre>
+        </>
+      )}
     </div>
   );
 }
