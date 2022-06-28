@@ -1,7 +1,11 @@
-.App {
+nav{
   text-align: center;
 }
-
+td, th{
+  text-align: left;
+  border: #282c34 1px solid;
+  padding: 8px 16px
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
