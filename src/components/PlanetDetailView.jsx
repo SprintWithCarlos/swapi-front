@@ -4,7 +4,7 @@ import { SwapiContext } from "../state/context";
 import ResidentsList from "./ResidentsList";
 
 
-const DetailView = ({ resource }) => {
+const PlanetDetailView = ({ resource }) => {
   const { id } = useParams();
   const { dispatch, ...state } = useContext(SwapiContext);
 
@@ -79,4 +79,4 @@ const DetailView = ({ resource }) => {
   );
 };
 
-export default DetailView;
+export default PlanetDetailView;

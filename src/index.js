@@ -5,7 +5,8 @@ import App from "./App";
 import { SwapiContextProvider } from "./state/context";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import PlanetsView from "./components/PlanetsView";
-import DetailView from "./components/DetailView";
+import ResidentDetailView from "./components/ResidentDetailView";
+import PlanetDetailView from "./components/PlanetDetailView";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 // ContextProvider at root to make state available to all children components through useContext hook
@@ -13,12 +14,17 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/planets" element={<PlanetsView />} />
-        <Route
-          path="/planets/:id"
-          element={<DetailView resource={"planets"} />}
-        />
+        <Route path="/" element={<App />}>
+          <Route path="/planets" element={<PlanetsView />} />
+          <Route
+            path="/planets/:id"
+            element={<PlanetDetailView resource={"planets"} />}
+          />
+          <Route
+            path="/people/:id"
+            element={<ResidentDetailView resource={"people"} />}
+          />
+        </Route>
       </Routes>
 
       <SwapiContextProvider></SwapiContextProvider>

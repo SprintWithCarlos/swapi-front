@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import "./App.css";
 
 import { fetchPlanets, fetchPeople } from "./state/apiCalls";
@@ -14,16 +14,17 @@ function App() {
     fetchPeople(state, dispatch);
   }, []);
   return (
-    <div className="App">
+    <div >
       {state.error && <p>A error happened, try again</p>}
       {state.isLoading ? (
         <p>Loading...</p>
       ) : (
         <>
           <nav>
-            <Link to={"/planets"}>Planets</Link>
+            <Link to={"/planets"}>Planets</Link> | 
+            <Link to={"/people"}> People</Link>
           </nav>
-          {/* <Link to={"/people"}>People</Link> */}
+          <Outlet className="Outlet"/>
           {/* <PlanetsView data={state.planets} />
           <ListView data={state.people} /> */}
           {/*  <pre>{JSON.stringify(state.planets)}</pre>
