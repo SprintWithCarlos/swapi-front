@@ -1,5 +1,5 @@
 /* eslint-disable no-loop-func */
-const baseURL = "https://swapi.dev/api";
+export const baseURL = "https://swapi.dev/api";
 // SWAPI is paginated, there is no direct way to get all resources. Current count is 60 for planets and 82 for people
 // We need a function that loops through all pages, stores all items in a new arreay, adding an id to the current schema
 
